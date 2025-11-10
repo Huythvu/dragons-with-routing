@@ -41,7 +41,9 @@ const dragons = ref(dragonData);
 
 // 12.3 Nu mangler vi bare at opdatere navigationen i App.vue - prøv det
 
-// 12.4 Kan vi gøre det bedre? Er det en pæn navigation? Hvad med at de enkelte "dragon cards" i HomeView fungerer som links? Do it og slet de dumme 20 links i nav!
+// 12.4 OBS! Virker din app til at hente den første drage, men virker IKKE når du skifter til den næste? Det har muligvis at gøre med din app henter den første drage når din component loades, men for at optimere koden loades din komponent kun EN gang. læs her og se hvordan watch() kan redde dagen: https://router.vuejs.org/guide/essentials/dynamic-matching.html#Reacting-to-Params-Changes 
+
+// 12.5 Kan vi gøre det bedre? Er det en pæn navigation? Hvad med at de enkelte "dragon cards" i HomeView fungerer som links? Do it og slet de dumme 20 links i nav!
 </script>
 
 <template>
