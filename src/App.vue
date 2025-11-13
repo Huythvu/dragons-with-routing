@@ -1,7 +1,10 @@
 <script setup>
 import {ref} from "vue";
+import { RouterView } from "vue-router"; //Might not need this router view import
 import dragonData from "@/assets/js/dragons.js";
+import TheHeader from "./components/TheHeader.vue";
 const dragons = ref(dragonData);
+console.log(dragons.value)
 // 0. Inden vi starter så vær opmærksom på at følgende ting ER sket inden I arbejder videre med dette projekt:
 // 0.1. Der er opsat en ny vue app MED router
 // 0.2. Denne omfatter at der er installeret router - det kan ses i package.json
@@ -49,17 +52,15 @@ const dragons = ref(dragonData);
 </script>
 
 <template>
-  <header>
-    <h1>D&D website</h1>
-    <h2>
-      Your source for DnD dragons. Providing dragon information since 2021.<br />
-      Find info about <span>20</span> dragons here.
-    </h2>
-  </header>
+  <TheHeader />
   <nav>
-    <!-- Links til ting her! -->
+    <RouterLink to="/"> Home </RouterLink>
   </nav>
-  <main><!-- Her skal vi vise vores "undersider" --></main>
+  <main>
+    <RouterView v-slot="{ Component }">
+      <component :is="Component" :dragons="dragons" />
+    </RouterView>
+    </main>
 </template>
 
 <style scoped>
